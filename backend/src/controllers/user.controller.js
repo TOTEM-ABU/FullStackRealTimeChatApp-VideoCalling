@@ -139,7 +139,7 @@ export async function getFriendRequests(req, res) {
   }
 }
 
-export async function getOutgoingFriendReqs(req, res) {
+export async function getOutgoingFriendRequests(req, res) {
   try {
     const outgoingRequests = await FriendRequest.find({
       sender: req.user.id,
