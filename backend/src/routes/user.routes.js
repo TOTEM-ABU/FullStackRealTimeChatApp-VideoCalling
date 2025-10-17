@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  acceptFriendRequest,
   getMyFriends,
   getRecommendedUsers,
   sendFriendRequest,
@@ -15,5 +16,6 @@ router.get("/", getRecommendedUsers);
 router.get("/friends", getMyFriends);
 
 router.post("/friend-request/:id", sendFriendRequest);
+router.post("/friend-request/:id/accept", acceptFriendRequest);
 
 export default router;
