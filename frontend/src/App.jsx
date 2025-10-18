@@ -21,9 +21,9 @@ const App = () => {
           path="/"
           element={
             isAuthenticated && isOnboarded ? (
-              <Layout showSidebar={true}>
-                <HomePage />
-              </Layout>
+              // <Layout showSidebar={true}>
+              <HomePage />
+
             ) : (
               <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )
@@ -45,9 +45,8 @@ const App = () => {
           path="/notifications"
           element={
             isAuthenticated && isOnboarded ? (
-              <Layout showSidebar={true}>
-                <NotificationsPage />
-              </Layout>
+              // <Layout showSidebar={true}>
+              <NotificationsPage />
             ) : (
               <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )
@@ -67,9 +66,8 @@ const App = () => {
           path="/chat/:id"
           element={
             isAuthenticated && isOnboarded ? (
-              <Layout showSidebar={false}>
-                <ChatPage />
-              </Layout>
+              // <Layout showSidebar={false}>
+              <ChatPage />
             ) : (
               <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )
