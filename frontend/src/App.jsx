@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from 'react-router'
 import { Toaster } from 'react-hot-toast'
 
 import { CallPage, ChatPage, HomePage, LoginPage, NotificationsPage, OnboardingPage, SignUpPage } from './pages'
-import { PageLoader } from './components'
+import { PageLoader, Layout } from './components'
 import { useAuthUser } from './hooks'
 
 
@@ -15,15 +15,15 @@ const App = () => {
   if (isLoading) return <PageLoader />
 
   return (
-    <div className='h-screen data-theme="night'>
+    <div className='h-screen' data-theme="forest">
       <Routes>
         <Route
           path="/"
           element={
             isAuthenticated && isOnboarded ? (
-              // <Layout showSidebar={true}>
-              <HomePage />
-
+              <Layout showSidebar={true}>
+                <HomePage />
+              </Layout>
             ) : (
               <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )
@@ -45,8 +45,9 @@ const App = () => {
           path="/notifications"
           element={
             isAuthenticated && isOnboarded ? (
-              // <Layout showSidebar={true}>
-              <NotificationsPage />
+              <Layout showSidebar={true}>
+                <NotificationsPage />
+              </Layout>
             ) : (
               <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )
@@ -66,8 +67,9 @@ const App = () => {
           path="/chat/:id"
           element={
             isAuthenticated && isOnboarded ? (
-              // <Layout showSidebar={false}>
-              <ChatPage />
+              <Layout showSidebar={false}>
+                <ChatPage />
+              </Layout>
             ) : (
               <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )
